@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dee’s Signature Scents</title>
+<link rel="icon" type="image/jpeg" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#FDFBF7;--ink:#1A1715;--gold:#C5A059;--blush:#EAD9D1;--green:#2D6A4F;--red:#B54848;--slate:#8D99AE;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost','Helvetica Neue',Arial,sans-serif;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);line-height:1.6}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+section{padding:72px 0}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--gold);background:var(--gold);color:var(--ink);padding:12px 22px;border-radius:999px;font:500 15px var(--sans);text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
+.btn.ghost{background:transparent;color:inherit}
+.btn.ghost:hover{background:var(--ivory);border-color:var(--ivory);color:var(--ink)}
+.btn:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,.chip:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wa{width:18px;height:18px;fill:currentColor;flex:none}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(253,251,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--blush)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.brand{display:inline-flex;align-items:center;gap:10px;font:700 26px var(--serif);text-decoration:none;white-space:nowrap}
+.brand img{height:38px;width:38px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
+nav{display:flex;gap:26px;font-size:15px}
+nav a{text-decoration:none;padding:4px 0;border-bottom:1.5px solid transparent}
+nav a:hover{border-color:var(--gold)}
+/* hero */
+.hero{position:relative;min-height:88vh;display:grid;place-items:center;text-align:center;color:var(--ivory);overflow:hidden;padding:80px 0;
+background:linear-gradient(120deg,#1A1715,#3a2c22,#1A1715);background-size:200% 200%;animation:drift 14s ease-in-out infinite alternate}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(197,160,89,.28),transparent 55%)}
+.hero .tint{position:absolute;inset:0;background:rgba(26,23,21,.45)}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(46px,9vw,104px);letter-spacing:.01em}
+.hero p{font:italic 500 clamp(20px,3.2vw,30px)/1.3 var(--serif);margin:18px 0 34px;color:var(--blush)}
+.hero .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+@keyframes drift{to{background-position:100% 100%}}
+/* spotlight */
+.spot{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.flyer{aspect-ratio:4/5;border-radius:28px;background:linear-gradient(160deg,var(--blush),#f6ece6);border:1px solid var(--gold);display:grid;place-items:center;text-align:center;padding:28px;box-shadow:0 20px 50px -24px rgba(26,23,21,.35)}
+.flyer b{font:700 40px/1.05 var(--serif);display:block}
+.flyer{padding:0;overflow:hidden}
+.flyer img{width:100%;height:100%;object-fit:cover;display:block}
+.spot h2{font-size:clamp(34px,5vw,52px);margin-bottom:18px}
+.spot p{max-width:46ch;font-size:17px}
+.facts{display:flex;gap:28px;margin-top:26px;flex-wrap:wrap}
+.facts div{border-left:2px solid var(--gold);padding-left:14px;font-size:15px}
+/* shop */
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.head h2{font-size:clamp(34px,5vw,52px)}
+.head p{margin:8px 0 0;max-width:50ch}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--ink);background:transparent;color:var(--ink);padding:8px 16px;border-radius:999px;font:400 14px var(--sans);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--ivory)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.card{background:#fff;border:1px solid var(--blush);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s}
+.card:hover{border-color:var(--gold)}
+.pic{position:relative;aspect-ratio:1/1;background:var(--blush);display:grid;place-items:center}
+.pic svg{width:46%;height:auto}
+.pic img{width:100%;height:100%;object-fit:cover;display:block}
+.badge{position:absolute;top:12px;left:12px;color:#fff;font-size:12.5px;font-weight:500;padding:5px 11px;border-radius:999px}
+.b-in{background:var(--green)}.b-low{background:var(--gold);color:var(--ink)}.b-out{background:var(--slate)}
+.info{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.info h3{font-size:23px}
+.vol{font-size:13px;opacity:.65}
+.notes{font-size:14.5px;flex:1}
+.price{font:700 24px var(--serif)}
+.splash{background:linear-gradient(180deg,var(--ivory),#f7ece6)}
+.splash .pic{background:#f3dfd6}
+.empty{padding:24px;border:1px dashed var(--gold);border-radius:16px;grid-column:1/-1}
+/* form */
+.formbox{background:var(--ink);color:var(--ivory);border-radius:28px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1fr 1.2fr;gap:44px}
+.formbox h2{font-size:clamp(32px,4.6vw,48px)}
+.formbox p{color:var(--blush);max-width:36ch}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f{display:flex;flex-direction:column;gap:5px;font-size:14px}
+.f.full{grid-column:1/-1}
+input,select,textarea{font:400 15px var(--sans);padding:11px 13px;border-radius:12px;border:1px solid #5b5148;background:#26211e;color:var(--ivory)}
+textarea{min-height:84px;resize:vertical}
+.msg{grid-column:1/-1;font-size:14px;color:var(--gold);min-height:20px}
+/* footer */
+footer h3{display:flex;align-items:center;gap:10px}
+footer h3 img{height:38px;width:38px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
+footer{background:var(--blush);padding:56px 0 40px}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:34px}
+footer h3{font-size:26px;margin-bottom:10px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer p{margin:4px 0}
+.fine{grid-column:1/-1;font-size:13px;opacity:.7;border-top:1px solid rgba(26,23,21,.15);padding-top:18px}
+@media(max-width:820px){nav{display:none}.spot,.formbox,footer .wrap{grid-template-columns:1fr}form{grid-template-columns:1fr}section{padding:52px 0}}
+@media(prefers-reduced-motion:reduce){.hero{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <a class="brand" href="#top"><img src="logo.png" alt="Dee’s Signature Scents Logo">Dee’s Signature Scents</a>
+  <nav aria-label="Main">
+   <a href="#perfumes">Perfumes</a><a href="#splashes">Body Splashes</a><a href="#request">Request a Scent</a><a href="#contact">Contact &amp; Location</a>
+  </nav>
+  <a class="btn" href="#" data-wa="Hi Dee, I would like to make an enquiry.">
+   <svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.96 1.38-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.62-2.96-1.28-4.89-4.26-5.04-4.46-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.59-.37.79-.37h.57c.18 0 .43-.07.67.51.24.59.83 2.03.9 2.18.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.38-.44.51-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.39-.25.66-.15.27.1 1.72.81 2.01.96.3.15.49.22.56.35.08.12.08.71-.16 1.39z"/></svg>
+   Chat on WhatsApp</a>
+ </div>
+</header>
+
+<main id="top">
+<div class="hero">
+ <video id="heroVideo" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+ <div class="tint"></div>
+ <div class="wrap">
+  <h1>Dee’s Signature Scents</h1>
+  <p>More than fragrance, it’s an experience.</p>
+  <div class="row">
+   <a class="btn" href="#perfumes">Explore Scents</a>
+   <a class="btn ghost" href="#" data-wa="Hi Dee, I would like to place an order.">Order via WhatsApp</a>
+  </div>
+ </div>
+</div>
+
+<section id="about"><div class="wrap spot">
+  <div class="flyer"><img src="flyer.jpeg" alt="Dee’s Signature Scents brand flyer"></div>
+  <div>
+  <h2>Curated luxury, sourced just for you</h2>
+  <p>Every bottle is personally hand-selected for authenticity, lasting projection and quality. Fast 1–2 day local sourcing and direct delivery to your door.</p>
+  <div class="facts"><div>Authentic<br>hand-selected</div><div>1–2 day<br>local sourcing</div><div>Direct<br>delivery</div>
+ </div>
+</div></section>
+
+<section id="perfumes" style="padding-top:20px"><div class="wrap">
+ <div class="head">
+  <div><h2>Signature perfumes</h2><p>Current stock, updated as bottles come in and go out.</p></div>
+  <div class="filters" role="group" aria-label="Filter perfumes">
+   <button class="chip" aria-pressed="true" data-f="all">All Perfumes</button>
+   <button class="chip" aria-pressed="false" data-f="stock">In Stock</button>
+   <button class="chip" aria-pressed="false" data-f="pre">Pre-Order / Sourcing</button>
+  </div>
+ </div>
+ <div class="grid" id="pGrid"></div>
+</div></section>
+
+<section id="splashes" style="background:var(--blush)"><div class="wrap">
+ <div class="head"><div><h2>Everyday body splashes &amp; mists</h2><p>Light, refreshing daily fragrances for that effortless glow.</p></div></div>
+ <div class="grid" id="sGrid"></div>
+</div></section>
+
+<section id="request"><div class="wrap formbox">
+ <div>
+  <h2>Place an order or request a specific scent</h2>
+  <p>Don’t see your favourite? Tell us the name and we’ll source it. Prefer email to WhatsApp? Send your order here.</p>
+ </div>
+ <form id="orderForm">
+  <label class="f">Full name<input name="name" required autocomplete="name"></label>
+  <label class="f">Phone / WhatsApp number<input name="phone" type="tel" required autocomplete="tel"></label>
+  <label class="f full">Preferred item
+   <select name="item" id="itemSel"></select></label>
+  <label class="f full" id="customWrap" hidden>Scent you’d like us to source<input name="custom" placeholder="e.g. Baccarat Rouge 540"></label>
+  <label class="f">Quantity<input name="qty" type="number" min="1" value="1" required></label>
+  <label class="f">Delivery location<input name="loc" required></label>
+  <label class="f full">Order notes / special instructions<textarea name="notes"></textarea></label>
+  <div class="full"><button class="btn" type="submit">Submit order</button></div>
+  <div class="msg" id="msg" role="status"></div>
+ </form>
+</div></section>
+</main>
+
+<footer id="contact"><div class="wrap">
+ <div><h3><img src="logo.png" alt="Dee’s Signature Scents Logo">Dee’s Signature Scents</h3><p>More than fragrance, it’s an experience.</p><p>Pickup point / delivery hub: <b>Your area, City</b></p></div>
+ <div><h3>Get in touch</h3><ul>
+  <li><a href="#" data-wa="Hi Dee, I have a question.">WhatsApp: +233 595311335</a></li>
+  <li><a href="https://www.snapchat.com/add/debb_ofori" rel="noopener">Snapchat: debb_ofori</a></li>
+  <li><a href="mailto:deborahoforiappiah@gmail.com">deborahoforiappiah@gmail.com</a></li></ul></div>
+ <div><h3>Sourcing days</h3><p>Orders sourced daily</p><p>Deliveries within 24–48 hours</p></div>
+ <div class="fine">© 2026 Dee’s Signature Scents</div>
+</div></footer>
+
+<script>
+var WA_NUMBER="233595311335"; // replace with your WhatsApp number (country code, no + or spaces)
+var EMAIL="deborahoforiappiah@gmail.com";
+var HERO_VIDEO="dw.mp4"; // your video file name or link, e.g. "hero.mp4" (when you host the site)
+(function(){var v=document.getElementById("heroVideo");if(HERO_VIDEO){v.src=HERO_VIDEO;v.play().catch(function(){})}else{v.style.display="none"}})();
+var perfumes=[
+ {n:"Extremely Unique",img:"b.jfif",v:"100ml",s:"low",p:"GH₵ 180",d:"A rich, masculine/ feminine blend of sweet orange, crisp watermelon, and tart blueberry. Long-lasting evening wear (8+ hours)."},
+ {n:"Berries Weekend",img:"a-2.jfif",v:"Eau de Parfum (EDP), 100ml",s:"low",p:"GH₵ 200",d:"Warm cinnamon, dates and praline over vanilla and amber. Sweet, cosy and loud."},
+ {n:"La Nuit de Rose",img:"i.jfif",v:"Eau de Parfum (EDP), 100ml",s:"out",p:"GH₵ 180",d:"Apple, cinnamon and lavender on a vanilla–tonka base. A night-out favourite."},
+ {n:"Catch De Noire",img:"e.jfif",v:"Eau de Parfum (EDP), 100ml",s:"low",p:"GH₵ 200",d:"Soft rose petals, peony and white musk. Elegant and feminine for day or evening."},
+ {n:"Oniro",img:"g.jfif",v:"Eau de Parfum (EDP), 100ml",s:"in",p:"GH₵ 200",d:"Fresh bergamot, lavender and smooth tonka. Clean, polished, office-ready."},
+ {n:"Aventos",img:"h.jfif",v:"Eau de Parfum (EDP), 100ml",s:"low",p:"GH₵ 200",d:"Aquatic, fruity opening with a bold woody dry-down. Fresh and long-lasting."},
+ {n:"Suave",img:"f.jfif",v:"Eau de Parfum (EDP), 100ml",s:"out",p:"GH₵ 180",d:"Aquatic, fruity opening with a bold woody dry-down. Fresh and long-lasting."},
+ {n:"I Am With You",img:"j.jfif",v:"Eau de Parfum (EDP), 100ml",s:"out",p:"GH₵ 200",d:"Aquatic, fruity opening with a bold woody dry-down. Fresh and long-lasting."},
+ {n:"Suger",img:"d.jfif",v:"Eau de Parfum (EDP), 100ml",s:"out",p:"GH₵ 200",d:"Aquatic, fruity opening with a bold woody dry-down. Fresh and long-lasting."},
+ {n:"Parfum de Merry Dearly",img:"k.jfif",v:"Eau de Parfum (EDP), 100ml",s:"low",p:"GH₵ 130",d:"Shares a similar indulgent gourmand and fruit-floral opening with soft confectionery and woody dry-downs."},
+ {n:"Pure Noble For Men",img:"c.jfif",v:"Eau de Parfum (EDP), 100ml",s:"out",p:"GH₵ 130",d:"Fresh, long-lasting aroma suitable for all skin types. Mild smell"},
+ {n:"Pure Eau Fraiche",img:"l.jfif",v:"Eau de Parfum (EDP), 100ml",s:"low",p:"GH₵ 130",d:"A fresh, energized, yet warm and sophisticated scent profile which contains Guatemalan cardamom and nutmeg. Mild Smell"},
+ {n:"Bed Kiss Velvet",img:"m.jfif",v:"Eau de Parfum (EDP), 100ml",s:"low",p:"GH₵ 130",d:"Warm and comforting options, including velvety vanilla latte and sweet floral compositions"},
+ {n:"Pink Sweet",img:"n.jfif",v:"Eau de Parfum (EDP), 100ml",s:"low",p:"GH₵ 130",d:"Described as a fresh, sweet, and floral Eau de Parfum with a delicate, classy, and soft-girl coded character."}
+];
+
+var splashes=[
+ {n:"Play Magic",img:"1.jfif",v:"250ml",c:"Available on demand",p:"GH₵ 50",d:"Sweet floral and fruity smell wrapped in warm, caramelised sugar."},
+ {n:"Malibu Lemon Blossom",img:"2.jfif",v:"250ml",c:"Available",p:"GH₵ 60",d:"Vibrant, citrus-floral fragrance designed to evoke a sunny, tropical escape."},
+ {n:"Charm Seduction Unaging ",img:"3.jfif",v:"250ml",c:"Available on demand",p:"GH₵ 60",d:"Soft fruity and clean musk for easy everyday wear."},
+ {n:"Oniro",img:"4.jfif",v:"250ml",c:"Available",p:"GH₵ 50",d:"Fresh, floral, and musky notes to create a balanced and alluring scent. "},
+ {n:"Boise Vanille",img:"5.jfif",v:"250ml",c:"Available on Demand",p:"GH₵ 50",d:" Features a warm, woody-vanilla scent profile, offering a cozy and sweet aroma designed for daily wear or a quick refresh throughout the day."},
+ {n:"Velour Petal",img:"6.jfif",v:"250ml",c:"Available",p:"GH₵ 50",d:"Features a signature mix of sweet almond glaze and lush/creme floral blooms)."},
+ {n:"Wild At Kiss",img:"7.jfif",v:"250ml",c:"Available on demand",p:"GH₵ 60",d:"Gilded amber, creamy almond crème, sugared sandalwood, and velvet musk"},
+ {n:"Dreamy Glow",img:"8.jfif",v:"250ml",c:"Available",p:"GH₵ 50",d:"Fresh, floral, and musky notes to create a balanced and alluring scent. "},
+ {n:"Three Dreams",img:"9.jfif",v:"250ml",c:"Available",p:"GH₵ 50",d:"Soft floral petals, delicate jasmine, violet, rose, iris, and subtle sweet blossom."},
+ {n:"Holiday Mood",img:"10.jfif",v:"250ml",c:"Available",p:"GH₵ 50",d:" A soft floral bouquet featuring sweet lily of the valley and delicate pink rose, keeping the citrus presence woven throughout."}
+];
+var badge={in:["b-in","In Stock – Ready Today"],low:["b-low","Only 1 Left in Stock!"],out:["b-out","Out of Stock – 2-Day Pre-order"]};
+function bottle(c){return '<svg viewBox="0 0 60 100" aria-hidden="true"><rect x="22" y="2" width="16" height="12" rx="3" fill="#C5A059"/><rect x="26" y="14" width="8" height="8" fill="#1A1715"/><rect x="8" y="22" width="44" height="74" rx="12" fill="'+c+'" stroke="#1A1715" stroke-width="2"/><rect x="16" y="42" width="28" height="26" rx="4" fill="#FDFBF7" opacity=".85"/><rect x="14" y="30" width="5" height="52" rx="2.500" fill="#fff" opacity=".35"/></svg>'}
+function waLink(t){return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(t)}
+function wire(){document.querySelectorAll("[data-wa]").forEach(function(a){a.href=waLink(a.getAttribute("data-wa"));a.target="_blank";a.rel="noopener"})}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function pic(x,color){return x.img?'<img src="'+x.img+'" alt="'+esc(x.n)+'">':bottle(color)}
+function pCard(x){var b=badge[x.s],cols={in:"#d9b88a",low:"#c9a0a0",out:"#b9c1d1"};
+ var msg="Hi Dee, I want to order "+x.n+" listed for "+x.p;
+ var label=x.s==="out"?"Pre-order on WhatsApp":"Order on WhatsApp";
+ return '<article class="card"><div class="pic">'+pic(x, cols[x.s])+'<span class="badge '+b[0]+'">'+b[1]+'</span></div><div class="info"><h3>'+esc(x.n)+'</h3><div class="vol">'+x.v+'</div><div class="notes">'+esc(x.d)+'</div><div class="price">'+x.p+'</div><a class="btn" target="_blank" rel="noopener" href="'+waLink(msg)+'">'+label+'</a></div></article>'}
+function sCard(x){var msg="Hi Dee, I want to order "+x.n+" body splash listed for "+x.p;
+ return '<article class="card splash"><div class="pic">'+pic(x, "#f6c9c0")+'<span class="badge b-low">'+esc(x.c)+'</span></div><div class="info"><h3>'+esc(x.n)+'</h3><div class="vol">'+x.v+'</div><div class="notes">'+esc(x.d)+'</div><div class="price">'+x.p+'</div><a class="btn" target="_blank" rel="noopener" href="'+waLink(msg)+'">Order on WhatsApp</a></div></article>'}
+function renderP(f){var list=perfumes.filter(function(x){return f==="all"||(f==="stock"&&x.s!=="out")||(f==="pre"&&x.s==="out")});
+ document.getElementById("pGrid").innerHTML=list.length?list.map(pCard).join(""):'<div class="empty">Nothing here right now. Message Dee on WhatsApp and she will source it.</div>'}
+document.querySelectorAll(".chip").forEach(function(c){c.addEventListener("click",function(){document.querySelectorAll(".chip").forEach(function(o){o.setAttribute("aria-pressed","false")});c.setAttribute("aria-pressed","true");renderP(c.dataset.f)})});
+renderP("all");
+document.getElementById("sGrid").innerHTML=splashes.map(sCard).join("");
+var sel=document.getElementById("itemSel");
+sel.innerHTML=perfumes.concat(splashes).map(function(x){return "<option>"+esc(x.n)+" – "+x.v+"</option>"}).join("")+"<option value='custom'>Other: request a specific scent</option>";
+sel.addEventListener("change",function(){document.getElementById("customWrap").hidden=sel.value!=="custom"});
+document.getElementById("orderForm").addEventListener("submit",function(e){e.preventDefault();
+ var f=new FormData(e.target),item=f.get("item")==="custom"?("Custom request: "+(f.get("custom")||"not specified")):f.get("item");
+ var body="Name: "+f.get("name")+"\nPhone/WhatsApp: "+f.get("phone")+"\nItem: "+item+"\nQuantity: "+f.get("qty")+"\nDelivery location: "+f.get("loc")+"\nNotes: "+(f.get("notes")||"-");
+ location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("New order from "+f.get("name"))+"&body="+encodeURIComponent(body);
+ document.getElementById("msg").textContent="Your email app is opening with the order filled in. Press send to finish."});
+wire();
+</script>
+</body>
+</html>
